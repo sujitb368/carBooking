@@ -34,11 +34,11 @@ const userSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
-    // role: {
-    //   type: String,
-    //   default: "user",
-    //     required: true,
-    // },
+    role: {
+      type: String,
+      default: "user",
+      required: true,
+    },
 
     profilePic: {
       type: String,
@@ -65,7 +65,8 @@ const userValidationSchema = Joi.object({
     .required()
     .trim(),
   phone: Joi.string().required().trim(),
-  // role: Joi.number().optional(),
+  role: Joi.number().optional(),
+  usertype: Joi.string().required(),
   profilePic: Joi.string(),
 });
 
