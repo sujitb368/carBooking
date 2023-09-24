@@ -15,6 +15,9 @@ const signupController = async (req, res) => {
   try {
     // Validate user data using Joi schema
     const { error, value } = userValidationSchema.validate(req.body);
+
+    console.log(value);
+
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
     }
