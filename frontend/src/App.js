@@ -1,18 +1,19 @@
 //
 
 //import logo from './logo.svg';
-import './App.css';
-import SignUp from './pages/auth/SignUp';
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/auth/Login';
+import "./App.css";
+import SignUp from "./pages/auth/SignUp";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/auth/Login";
 
 // routers
 function App() {
-  return (      // navigation bar
+  return (
+    // navigation bar
     <Routes>
-      <Route path='/login' element={<Login />} />
-      <Route path='/signup' element={<SignUp />} />
-
+      <Route path="/" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 }
