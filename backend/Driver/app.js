@@ -5,9 +5,18 @@ import cors from "cors";
 
 import { connectdb } from "./src/config/dbConfig.js";
 
+import validateFields from "./src/middleware/joi.middleware.js";
+
 connectdb();
 
 app.use(express.json());
+
+
+
+
+
+
+
 
 //server port number
 const port = process.env.port || 8081;
