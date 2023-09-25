@@ -1,14 +1,16 @@
 
-const joi = require('joi');
+const Joi = require('joi');
 
+const schema = Joi.object({
+    userId: Joi.string().required(),
+    licenceType: Joi.string().valid('Type1', 'Type2', 'Type3').required(), // You can specify valid values here
+    kycDocument: Joi.string().required(),
+    documentId: Joi.string().required(),
+});
 
+const validateFields = (data) => {
+    return schema.validate(data);
+};
 
-// Define the user schema with preferred validation options
-const categorySchema = {
-    categoryGroup: joi.string().required(),
-    categoryList: joi.array().required(),
+export default validateFields;
 
-}
-
-//Export the functions for use in other parts of the application
-module.exports = categorySchema;
