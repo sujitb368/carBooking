@@ -1,5 +1,4 @@
-
-const Joi = require('joi');
+import Joi from "joi";
 
 const schema = Joi.object({
     userId: Joi.string().required(),
