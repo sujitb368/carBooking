@@ -27,8 +27,30 @@ const registration = async (req, res) => {
             documentId
         } = req.body
 
+        //storing into Database
+        const driverRegistration = new DriveModel({
+            userId,
+            licenceType,
+            kycDocument,
+            documentId
+        })
+        await driverRegistration.save();
+        // sent response to client
+
+        return res(201).send({
+            message: 'Driver Registration successfull',
+            success: true,
+            data: driverRegistration
+        });
+
+
     } catch (error) {
 
+        return res(500).send({
+            message: 'Internal Server Error',
+            success: false,
+            error
+        });
     }
 }
 
@@ -57,3 +79,11 @@ const registration = async (req, res) => {
 
 
 */
+
+
+
+
+
+
+
+export { registration } 
